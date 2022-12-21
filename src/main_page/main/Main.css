@@ -1,0 +1,75 @@
+main{
+    width: 100%;
+    background: #2c2c2c;
+}
+
+.light{
+    width: 100%;
+    background: white;
+}
+
+.films{
+    width: 90%;
+    display: flex;
+    gap: 20px;
+    justify-content: start;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.filmsLight{
+
+}
+
+.film{
+    cursor: pointer;
+    width: 273px;
+    height: 510px;
+    box-shadow: 0 0 30px;
+    margin: 30px auto;
+}
+
+.film img{
+    height: 409px;
+}
+
+.film-data{
+    color: white;
+}
+
+.titleFilmData{
+    color: black;
+
+}
+
+
+
+#titleEn{
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+}
+
+.titleFilmData{
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+}
+
+#titleRu{
+    border-bottom: 1px solid white;
+    font-size: 15px;
+}
+
+.titleFilmData #titleRu{
+    border-bottom: 1px solid black;
+    font-size: 15px;
+}
+
+.owl-theme{
+    margin-top: 20px;
+}
+.owl-item {
+    width: unset !important;
+}
+

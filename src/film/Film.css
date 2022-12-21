@@ -1,0 +1,47 @@
+.film-item-data{
+    width: 100%;
+    border: 2px solid black;
+    background: #2b2b2b;
+}
+
+.film-item{
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+}
+
+.film-item{
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+    background: rgb(128, 255, 136);
+    border: 2px solid;
+}
+
+.film-data img{
+    width: 400px;
+    height: 550px;
+}
+
+
+
+.film-img div{
+    width: 400px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.film-data{
+    display: flex;
+    color: black;
+}
+
+.film-news{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+    margin-left: 20px;
+}

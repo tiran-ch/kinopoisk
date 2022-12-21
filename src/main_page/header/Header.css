@@ -1,0 +1,127 @@
+header{
+    margin: auto;
+    width: 100%;
+    background: #1d1d1d;
+}
+
+.light{
+    background: white;
+}
+
+.header-block{
+    margin: auto;
+    width: 65%;
+    background: #f8edff;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lightBlock{
+    margin: auto;
+    width: 65%;
+    height: 100px;
+    background: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    cursor: pointer;
+}
+
+.logo img{
+    width: 150px;
+
+}
+
+.searching{
+    position: relative;
+}
+
+.searching input{
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid black;
+    width: 230px;
+    font-size: 18px;
+    height: 32px;
+}
+.searching img{
+    width: 23px;
+    position: absolute;
+    top: 4px;
+    cursor: pointer;
+    left: 200px;
+}
+
+.Genres ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+}
+
+.Genres ul li{
+    width: 80px;
+    height: 25px;
+    font-size: 16px;
+    text-align: center;
+    list-style-type: none;
+}
+
+.Genres ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.Genres ul li:hover{
+    background: blue;
+    color: white;
+
+}
+
+.Genres ul li a:hover{
+    color: white;
+}
+
+.films-country-genres{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.genres select {
+    width: 220px;
+    height: 35px;
+    border-radius: 25px;
+    padding:0 10px 0 10px;
+    background: black;
+    color: white;
+}
+
+.countries select{
+    background: black;
+    color: white;
+    width: 220px;
+    height: 35px;
+    border-radius: 25px;
+    padding:0 10px 0 10px;
+}
+.Page-color{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.Page-color img{
+    width: 25px;
+}
