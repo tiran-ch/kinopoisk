@@ -7,7 +7,7 @@ export function filmItem(state = getFilm, action) {
     case"FILM_ITEM":
       return{
         ...state,
-        filmItem: [action.payload]
+        filmItem: action.payload
       };
       default:
         return state

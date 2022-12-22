@@ -1,23 +1,26 @@
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-
-import Header from "../main_page/header/Header";
+import {
+  useParams
+} from "react-router-dom";
+import Header from "../../components/header/Header";
 import "./Film.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Container} from "react-bootstrap";
-import api from "../api";
-import {getFilmVideo} from "../api/films";
+import {getFilmVideo} from "../../api/films";
 
 export default function Film() {
   const film = useSelector(state => state.filmItem.filmItem);
   const getFilmsVideo = useSelector((state => state.getFilmData.films));
+  let { id } = useParams();
+
   const youtubeUrl = [];
   let url =[];
   let youtube = "https://www.youtube.com/embed/";
   const [mainUrl, setMainUrl] = useState();
 
   useEffect(()=>{
-    getFilmVideo(film[0].kinopoiskId).then(video=>{
+    getFilmVideo(id).then(video=>{
 
        for (let i = 0; i < video.data.items[0].url.length; i++){
         url.push(video.data.items[0].url[i]);
@@ -41,35 +44,29 @@ export default function Film() {
       <Header/>
       <div className="film-item-data">
         <div className="film-item">
-          {
-            film.map((data, id) => {
-              return (
-                <div key={id} className="film-data">
-                  <div className="film-img">
-                    <div>
-                      <h4>{data.nameOriginal}</h4>
-                      <h4>{data.year}</h4>
-                    </div>
-                    <img src={data.posterUrl} alt=""/>
-                  </div>
-                  <div className="film-news">
-                    <h6>nameRu - {data.nameRu}</h6>
-                    <h6>Reeting - {data.ratingImdb}</h6>
-                    {
-                    data.genres.map((genre, id)=>(
-                      <h6 key={id}>Genre - {genre.genre}</h6>
-                    ))
-                  }
-                    {
-                      data.countries.map((country, id)=>(
-                        <h6 key={id}>country - {country.country}</h6>
-                      ))
-                    }
-                  </div>
-                </div>
-              )
-            })
-          }
+          <div key={id} className="film-data">
+            <div className="film-img">
+              <div>
+                <h4>{film.nameOriginal}</h4>
+                <h4>{film.year}</h4>
+              </div>
+              <img src={film.posterUrl} alt=""/>
+            </div>
+            <div className="film-news">
+              <h6>nameRu - {film.nameRu}</h6>
+              <h6>Reeting - {film.ratingImdb}</h6>
+              {
+                film.genres.map((genre, id)=>(
+                  <h6 key={id}>Genre - {genre.genre}</h6>
+                ))
+              }
+              {
+                film.countries.map((country, id)=>(
+                  <h6 key={id}>country - {country.country}</h6>
+                ))
+              }
+            </div>
+          </div>
           <Container>
             <div className="ratio ratio-16x9">
               <iframe width="560" height="315" src={mainUrl}

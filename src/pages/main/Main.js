@@ -85,7 +85,7 @@ const Main = (props) => {
               return (
                 <div className='item' key={data.filmId}>
                   <div className="top-film">
-                    <img onClick={(e) => {
+                    <img onClick={() => {
                       window.open( props.getFilmsVideo);
                     }} src={data.posterUrlPreview} alt="" style={{width: 200}}/>
                   </div>
@@ -99,7 +99,7 @@ const Main = (props) => {
           film.map(data => {
             return (
               <div key={data.kinopoiskId} className="film" onClick={() => filmItem(data)}>
-                <Link to="film">
+                <Link to={`film/${data.kinopoiskId}`}>
                   <img src={data.posterUrlPreview} alt=""/>
                   <div className={filmsLight}>
                     <p id='titleEn'>{data.nameEn}</p>
@@ -112,11 +112,11 @@ const Main = (props) => {
           })
         }
         {
-          props.searchData.length !== 0 &&
+          props.searchData.length > 0 &&
           props.searchData.map(data => {
             return (
               <div className="film" key={data.filmId} onClick={() => setFilmItem(data)}>
-                <Link to="film">
+                <Link to={`film/${data.kinopoiskId}`}>
                   <img src={data.posterUrlPreview} alt=""/>
                   <div className="film-data">
                     <p id='titleEn'>{data.nameEn}</p>

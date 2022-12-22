@@ -1,8 +1,8 @@
 import React from "react";
 import './App.css';
-import Header from "./main_page/header/Header";
-import Main from "./main_page/main/Main";
-import Footer from "./main_page/footer/Footer";
+import Header from "./components/header/Header";
+import Main from "./pages/main/Main";
+import Footer from "./components/footer/Footer";
 import Router from "./router/Router"
 
 function App() {

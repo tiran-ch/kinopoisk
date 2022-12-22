@@ -19,6 +19,7 @@ const Footer = (props) =>  {
 },[props.pageCount]);
 
 
+  console.log(props.onePage);
 
   const createPagination =(e)=>{
       if(e.target.innerHTML === "Prev"){
