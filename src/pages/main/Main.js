@@ -5,12 +5,12 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import {getTopFilms, filmVideos, getFilms} from "../../api/films";
-import {Link} from "react-router-dom";
-import {toggle, getAllMainFilms} from "../../all-page-filter/mainFilter";
+import {useNavigate} from "react-router-dom";
+import {toggle ,getAllMainFilms} from "../../util/Util";
 
 const Main = (props) => {
+  let navigate = useNavigate();
   const [film, setFilm] = useState([]);
-
   const [genres, setGenres] = useState();
   const [countries, setCountries] = useState();
   const [filmId, setFilmId] = useState("689");
@@ -37,15 +37,9 @@ const Main = (props) => {
     getTopFilms().then(res => {
       props.setBestFilms(res.data.films);
     });
+    console.log( props.pagesCount())
   }, []);
 
-  // useEffect(()=>{
-  //   console.log(props.bestFilms);
-  //   if (props.bestFilms.length !== 0){
-  //     SetOwlCarousel(props.bestFilms, props.getFilmsVideo)
-  //
-  //   }
-  // },[props.bestFilms]);
 
 
   useEffect(() => {
@@ -65,16 +59,9 @@ const Main = (props) => {
 
   }, [props.genre, props.country]);
 
-  const filmItem = (data) => {
-    setFilmId(data.filmId);
-    props.setFilmItem(data);
+  const openFilm = (kinopoiskId) => {
+    navigate(`film/${kinopoiskId}`)
   };
-
-  const setFilmItem = (data) => {
-    setFilmId(data.filmId);
-    props.setFilmItem(data);
-  };
-
 
   return (
     <main className={main}>
@@ -98,15 +85,13 @@ const Main = (props) => {
           props.searchData.length === 0 &&
           film.map(data => {
             return (
-              <div key={data.kinopoiskId} className="film" onClick={() => filmItem(data)}>
-                <Link to={`film/${data.kinopoiskId}`}>
+              <div key={data.kinopoiskId} className="film" onClick={() => openFilm(data.kinopoiskId)}>
                   <img src={data.posterUrlPreview} alt=""/>
                   <div className={filmsLight}>
                     <p id='titleEn'>{data.nameEn}</p>
                     <p id="titleRu">{data.nameRu}</p>
                     <p id="filmYear">{data.year}</p>
                   </div>
-                </Link>
               </div>
             )
           })
@@ -115,15 +100,13 @@ const Main = (props) => {
           props.searchData.length > 0 &&
           props.searchData.map(data => {
             return (
-              <div className="film" key={data.filmId} onClick={() => setFilmItem(data)}>
-                <Link to={`film/${data.kinopoiskId}`}>
+              <div className="film" key={data.filmId} onClick={() => openFilm(data.kinopoiskId)}>
                   <img src={data.posterUrlPreview} alt=""/>
                   <div className="film-data">
                     <p id='titleEn'>{data.nameEn}</p>
                     <p id="titleRu">{data.nameRu}</p>
                     <p id="filmYear">{data.year}</p>
                   </div>
-                </Link>
               </div>
             )
           })
@@ -142,12 +125,11 @@ const mapStateToProps = (state) => {
     getFilmsVideo: state.getFilmData.films,
     genre: state.filter.genre,
     country: state.filter.country,
-  })
+})
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setFilmItem: (data) => dispatch({type: "FILM_ITEM", payload: data}),
     setFilms: (data) => dispatch({type: "SET_FILMS", payload: data}),
     films: (data) => dispatch({type: "films", payload: data}),
     setBestFilms: (data) => dispatch({type: "SET_BEST_FILMS", payload: data}),

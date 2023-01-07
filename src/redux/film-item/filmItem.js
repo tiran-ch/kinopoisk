@@ -1,5 +1,5 @@
 const getFilm ={
-  filmItem: []
+  filmItem: {}
 };
 
 export function filmItem(state = getFilm, action) {

@@ -2,7 +2,7 @@ import axios from "axios";
 const api = axios.create({
   baseURL: 'https://kinopoiskapiunofficial.tech/api',
   headers: {
-    'X-API-KEY': "00bc9ed2-f8a5-4804-879c-e0d35e3f6af3\n",
+    'X-API-KEY': "cbe789be-8e2d-426b-876a-280d6ebaf3fc",
     'Content-Type': "application/json",
   }
 });

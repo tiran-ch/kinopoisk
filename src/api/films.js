@@ -11,7 +11,6 @@ export const getFilms = (country, genre) => api.get(`/v2.2/films`, {
     genres: genre,
   }
 });
-//
 
 export  const getMainFilms = (pageCount) => api.get(`/v2.2/films?countries=1&genres=1&order=
 RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=${pageCount}`);

@@ -6,9 +6,8 @@ import sun from "../../images/sun.png";
 import {getFilmFilter, keywordSearch} from "../../api/films";
 import {connect} from "react-redux";
 import {Switch} from "antd";
-import {HeaderColor} from "../../utils/Utils";
-import {Logo} from "../../all-page-filter/headerFilter";
-
+import {HeaderColor} from "../../util/Util";
+import {Logo} from "../../util/Util";
 
 const Header = (props) => {
   const [searchText, setSearchText] = useState("");
@@ -18,8 +17,6 @@ const Header = (props) => {
   const [toggle, setToggle] = useState(false);
   const [header, setHeader] = useState("");
   const [headerBlock, setHeaderBlock] = useState("header-block");
-
-
 
   useEffect(() => {
     getFilmFilter().then(res => {
@@ -40,7 +37,6 @@ const Header = (props) => {
 
   return (
     <header className={header}>
-
       <div className={headerBlock}>
         <Logo/>
         <form action="" className="searching" onSubmit={e => {
